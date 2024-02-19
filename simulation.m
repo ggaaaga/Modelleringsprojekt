@@ -9,26 +9,58 @@ h = 0.1; % Step size? från sista tut i mos: Which stepsize should be used? It c
 R = 60; % Resistans, ohm
 
 % Ekvationer %
-F = k * m*g/2; % Applied force
-T = F * r; % Torque
-J = m*r2/2; % Moment of Inertia
-wdot = T / J; % Angular velocity
 
 % Variabler %
-w = 0; % Initial hastighet (uppdateras i loopen)
-p = 0; % Initial position (uppdateras i loopen)
+w = 0; % Hastighet (uppdateras i loopen)
+p = 0; % Position (uppdateras i loopen)
 v = 0; % Spänning
 i = 0; % Ström
 
-t = linspace(0,100);
+t = 0:h:10;  % Time vector
+positions = zeros(size(t));
+velocities = zeros(size(t));
+generatedPower = zeros(size(t));
 
-for t = 0:h:10
+for idx = 1:numel(t)
 
-    [w,p] = eulermethod(wdot, w, p, h) % Hämta nya hastigheten och positionen från euler metoden
-    %i = r2*v/R;
-    plot(t,p,'o')
-    hold on
+    F = k * m*g/2; % Applied force
+    T = F * r; % Torque
+    J = m*r2 /2; % Moment of Inertia
+    wdot = T / J; % Angular velocity
 
+    if idx > 50
+        wdot = 0;
+    end
+
+    % Euler method
+    [wnew, pnew] = eulermethod(wdot, w, p, h);
+
+    % Power output
+    i = T / R;
+    v = r2 * wnew;
+    P = i * v;
+
+    % Update variables
+    w = wnew;
+    p = pnew;
+    positions(idx) = p;
+    velocities(idx) = w;
+    generatedPower(idx) = P;
 end
+
+% Plot position
+plot(t, positions, 'o-');
+xlabel('Time (s)');
+ylabel('Degrees rotated (rad)');
+title('Degree of Pedal vs Time');
+grid on;
+
+figure
+
+% Plot power
+plot(t, generatedPower, '-');
+xlabel('Time (s)');
+ylabel('Output power (Watt)');
+title('Output power vs Time');
 
 

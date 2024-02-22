@@ -48,13 +48,12 @@ for idx = 1:numel(t)
     generatedPower(idx) = P;
 end
 
-x = r2*sin(positions);
-y = r2*cos(positions);
+positio
 
 % Plot position
-plot(x, y, 'o');
-xlabel('x position');
-ylabel('y position');
+plot(t, positions, 'o-');
+xlabel('Time (s)');
+ylabel('Degrees rotated (rad)');
 title('Degree of Pedal vs Time');
 grid on;
 

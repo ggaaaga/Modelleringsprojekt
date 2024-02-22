@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>JavaScript Simulation</h1>
+    <canvas id="animationCanvas" width="800" height="600"></canvas>
+
+    <div class="bicycle-container">
+        <div class="wheel back-wheel">
+            <div class="tire"></div>
+            <div class="rim"></div>
+            <div class="spokes"></div>
+            <div class="hub"></div>
+        </div>
+
+        <div class="wheel front-wheel">
+            <div class="tire"></div>
+            <div class="rim"></div>
+            <div class="spokes"></div>
+            <div class="hub"></div>
+        </div>
+    </div>
+
+    <div id="">
+        <label for="massInput">Weight of person</label>
+        <input type="number" id="massInput" min="0" value="75"> kg
+
+        <label for="factorInput">Pedaling work applied</label>
+        <input type="range" id="factorInput" min="0" max="10" value ="5"> kg
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -15,6 +15,7 @@ w = 0; % Hastighet (uppdateras i loopen)
 p = 0; % Position (uppdateras i loopen)
 v = 0; % Spänning
 i = 0; % Ström
+P = 0; % effekt
 
 t = 0:h:10;  % Time vector
 positions = zeros(size(t));

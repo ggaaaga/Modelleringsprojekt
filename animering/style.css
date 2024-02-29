@@ -1,102 +1,457 @@
-/*
-body {
-   background-color: #141414;
-}*/
 
 h1 {
     text-align: center;
     margin-top: 20px;
-   /* color: white; */
 }
 
-canvas {
-    display: block;
-    margin: 0 auto;
-    border: 2px solid #000; /* Add a border for visualization */
+body {
+    background-color: #393939;
+    color: white;
+}
+
+*{margin:0;
+padding: 0;
+box-sizing: border-box;
 }
 
 /*cykel*/
 .bicycle-container{
+position: absolute;
+margin-top: 10%;
+top:0;
+left:60%;
+right:0;
+bottom:0;
+max-width: 350px;
+height: 350px;
+overflow:hidden;
+z-index: 3;
+}
+
+.bicycle-container .wheel{
     position: absolute;
     margin: auto;
-    top:0;
-    left:0;
-    right:0;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+
+}
+
+.bicycle-container .shadow{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 10px 15px -12px rgba(0, 0, 0, 0.3);
+}
+
+
+.bicycle-container .wheel .tire{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right:0 ;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    border: 10px solid#f1b4e0;
+    z-index: 2;
+}
+
+.bicycle-container .wheel .rim{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
     bottom:0;
-    max-width: 350px;
-    height: 300px;
-    overflow:hidden;
-    }
-    
-    .bicycle-container .wheel{
-        position: absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        width: 120px;
-        height: 120px;
-        box-shadow: 0 10px 15px -12px rgba(0,0,0,.3);
-        display: none;
-    }
-    
-    .bicycle-container .wheel .tire{
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right:0 ;
-        bottom: 0;
-        left: 0;
-        width: inherit;
-        height: inherit;
-        border-radius: 50%;
-        border: 10px solid #151515;
-        z-index: 2;
-    }
-    
-    .bicycle-container .wheel .rim{
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        border: 10px solid rgb(96, 177, 107);
-        z-index: 1;
-    }
-    
-    .bicycle-container .wheel .spokes{
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 78px;
-        height:78px;
-        border-radius: 50%;
-        border-left: 3px solid transparent;
-        border-right: 3px solid transparent;
-        border-top: 3px solid rgb(96, 177, 107);
-        z-index: 1;
-        animation: rt 2s infinite linear;
-        background:rgba(200,100,100,.1)
-    }
+    left: 0;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 10px solid #ad60b1;
+    z-index: 1;
+}
 
-    label {
-        display: block;
-        font-weight: 700;
-        font-size: 20px;
-        font: sans-serif;
-    }
-      
-    input, label {
-        margin: 0.4rem 0;
-    }
+.bicycle-container .wheel .spokes{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 78px;
+    height:78px;
+    border-radius: 50%;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid #ad60b1;
+    z-index: 1;
+    background:rgba(200,100,100,.1)
+}
 
-    input {
-        width: 60px;
-    }
-      
+.bicycle-container .wheel .spokes:nth-of-type(3){
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid #ad60b1 ;
+}
+
+.bicycle-container .wheel .hub{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgb#ad60b1;
+}
+
+.bicycle-container .back-wheel{
+    left: 0;
+}
+
+.bicycle-container .front-wheel{
+    right: 0;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 10px 15px -12px rgba(0, 0, 0, 0.3);
+}
+
+.bicycle-container  .box{
+    position: absolute;
+    top:100px;
+    width: 120px;
+    height: 20px;
+    border-radius: 7%;
+    background: #5e004b;
+    z-index: 4;
+}
+
+
+.bicycle-container .gear{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: calc(120px + 39.6px);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1b4e0;
+    z-index: 4;
+   /* animation: rt 3s infinite linear;*/
+}
+
+.bicycle-container .gear .gear-red{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid #ad60b1;
+}
+
+.bicycle-container .gear .pedal-tube{
+    position: absolute;
+    margin: auto;
+    top: -30px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.bicycle-container .gear .pedal{
+    position: absolute;
+    margin: auto;
+    top: -50px;
+    right:0;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: 5px;
+    background: #ad60b1;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+
+.bicycle-container .tube{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    height: 20px;
+
+    border-radius: 5px;
+    background: #f1b4e0;
+    z-index: 3;
+}
+
+.bicycle-container .chain-tube {
+    left: calc(60px);
+    width: 120px;
+    height: 5px;
+}
+
+.bicycle-container .seat-tube-back{
+    left:60px;
+    transform-origin: left;
+    transform: rotate(-60deg);
+    width: 120px;
+    height: 5px;
+}
+
+.bicycle-container .seat-tube-front{
+    left:60px;
+    transform-origin: right;
+    transform: rotate(60deg);
+    width: 120px;
+    height: 5px;
+}
+
+.bicycle-container .seat-tube-post{
+    left:40px;
+    transform-origin: right;
+    transform: rotate(60deg);
+    background: #ad60b1;
+    z-index: 1;
+    height: 4px;
+    width: 140px;
+}
+
+.bicycle-container .top-tube{
+    left: 120px;
+    bottom: initial;
+    top: 70px;
+    width: 113px;
+    height: 5px;
+ }
+
+ .bicycle-container .top-handlebar-tube{
+    right: 112px;
+    bottom: initial;
+    top: 50px;
+    width: 20px;
+    height: 5px;
+    background: #ad60b1;
+ }
+
+ 
+ .bicycle-container .top-handlebar-tube2{
+    right: 90px;
+    bottom: initial;
+    top: 50px;
+    width: 25px;
+    height: 5px;
+    background: #f1b4e0;
+    border-radius: 0%;
+ }
+
+ .bicycle-container .down-tube{
+    left: 180px;
+    width: 100px;
+    height:5px;
+    transform-origin: left;
+    transform:rotate(-50deg) ;
+ }
+
+ .bicycle-container .head-tube{
+    right: 60px;
+    transform-origin: right;
+    transform: rotate(60deg);
+    width: 140px;
+    background: #ad60b1;
+    z-index: 1;
+    height: 4px;
+ }
+
+ .bicycle-container .saddle{
+    position: absolute;
+    margin: auto;
+    top:45px;
+    left: 85px;
+    width: 50px;
+    height: 10px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 50%;
+    background: #f1b4e0;
+    z-index: 2;
+ }
+
+ .bicycle-container .handlebars{
+    position: absolute;
+    margin: auto;
+    top: 50px;
+    right: 75px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top: 5px solid #f1b4e0;
+    border-right: 5px solid #f1b4e0;
+    border-bottom: 5px solid #ad60b1;
+    z-index: 2;
+ }
+
+label {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    font: sans-serif;
+}
+    
+input, label {
+    margin: 0.4rem 0;
+}
+
+input {
+    width: 60px;
+}
+
+#animationButton {
+    background: #FF4742;
+    border-color: #FF4742;;
+    border-radius: 6px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    padding: 12px 14px;
+    text-align: center;
+}
+
+body.on {
+    background: radial-gradient(#555, #111);
+}
+
+.lightContainer{
+    position: right;
+    margin-top: 8%;
+    margin-left: 38%;
+    scale: 0.75;
+    z-index: 3;
+}
+.lightContainer .bulb  {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #ffffff;
+    border-radius: 50%;
+    
+}
+
+.lightContainer .bulb-inner {
+    position: absolute;
+    left: 22.5px;
+    top: 50px;
+    width: 35px;
+    height: 80px;
+    background: #fffcfc;
+    border-bottom: 30px solid #000;
+    border-radius: 10px;
+  
+}
+
+
+
+/*
+.lightContainer {
+
+}*/
+
+
+.belt  {
+    width: 180px;
+    height: 3px; /* Adjust height to your preference */
+    margin-left: 53%;
+    top:28px;
+    background-color: rgb(83, 83, 83); /* Color of the wire */
+    position: relative;
+    transform: rotate(-10deg); /* Rotate the wire */
+    z-index: 1;
+}
+
+.belt2  {
+    width: 180px;
+    height: 3px; /* Adjust height to your preference */
+    margin-left: 53%;
+    top: 95px;
+    background-color: rgb(83, 83, 83); /* Color of the wire */
+    position: relative;
+    transform: rotate(15deg); /* Rotate the wire */
+    z-index: 1;
+}
+
+
+.wire  {
+    width: 100px;
+    height: 3px; /* Adjust height to your preference */
+    left: 740px;
+    top: 34px;
+    background-color: rgb(255, 0, 0); /* Color of the wire */
+    position: relative;
+    transform: rotate(25deg); /* Rotate the wire */
+    z-index: 1;
+}
+
+.wire2  {
+    width: 100px;
+    height: 3px; /* Adjust height to your preference */
+    left: 735px;
+    top: 40px;
+    background-color: rgb(0, 94, 255); /* Color of the wire */
+    position: relative;
+    transform: rotate(33deg); /* Rotate the wire */
+    z-index: 1;
+}
+
+
+
+
+.DC{
+    position: relative;
+    left: 800px;
+    top:25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #000000;
+    z-index: 2;
+}
+
+.text-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+
+#info {
+    position: absolute;
+    left: 70px;
+}

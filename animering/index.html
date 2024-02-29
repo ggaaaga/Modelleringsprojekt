@@ -6,33 +6,80 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>JavaScript Simulation</h1>
-    <canvas id="animationCanvas" width="800" height="600"></canvas>
+    <h1>Electricity Generating Bike Simulation</h1>
 
-    <div class="bicycle-container">
-        <div class="wheel back-wheel">
-            <div class="tire"></div>
-            <div class="rim"></div>
-            <div class="spokes"></div>
-            <div class="hub"></div>
-        </div>
+<!-- cykel -->
 
-        <div class="wheel front-wheel">
-            <div class="tire"></div>
-            <div class="rim"></div>
-            <div class="spokes"></div>
-            <div class="hub"></div>
+
+<div class="bicycle-container">
+    <div class="wheel back-wheel">
+        <div class="tire"></div>
+        <div class="rim"></div>
+        <div class="spokes"></div>
+        <div class="hub"></div>
+    </div>
+
+    <div class="wheel front-wheel">
+        <div class="tire"></div>
+        <div class="rim"></div>
+        <div class="spokes"></div>
+        <div class="hub"></div>
+        <div class="box"></div>
+    </div>
+
+    <div class="gear">
+        <div class="gear-red"></div>
+        <div class="tube pedal-tube"></div>
+        <div class="pedal"></div>
+    </div>
+
+    <div class="shadow"></div>
+
+    <div class="tube chain-tube"></div>
+    <div class="tube seat-tube-back"></div>
+    <div class="tube seat-tube-front"></div>
+    <div class="tube seat-tube-post"></div>
+    <div class="tube top-tube"></div>
+    <div class="tube top-handlebar-tube"></div>
+    <div class="tube top-handlebar-tube2"></div>
+    <div class="tube down-tube"></div>
+    <div class="tube head-tube"></div>
+    <div class="tube head-tube-post"></div>
+    <div class="saddle"></div>
+    <div class="handlebars"></div>
+
+    </div>
+    
+    <div class="lightContainer">
+        <div class="bulb">
+        <div class="bulb-inner"></div>
         </div>
     </div>
 
-    <div id="">
-        <label for="massInput">Weight of person</label>
-        <input type="number" id="massInput" min="0" value="75"> kg
+    <div id="info">
 
-        <label for="factorInput">Pedaling work applied</label>
-        <input type="range" id="factorInput" min="0" max="10" value ="5"> kg
+        <div id="userInput">
+            <button id="animationButton" onclick= "toggle()">Stop Pedaling</button>
+        </div>
+
+        <h2 id="vel">V: m/s</h2>
+        <h2 id="pow">Effect: Watts</h2>
+
+        <script src="script.js"></script>
+
     </div>
 
+    </div>
+
+    <div class="belt"></div>
+    <div class="belt2"></div>
+
+    <div class="wire"></div>
+    <div class="wire2"></div>
+
+    <div class="DC">
+        <div class="text-over">DC</div>
+    </div>
 
     <script src="script.js"></script>
 

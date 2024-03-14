@@ -3,10 +3,10 @@
 
 const rPedal = 0.2;
 const rWheel = 0.311;
-const resistance = 60;
+const resistance = 30;
 const gravityConstant = 9.82; 
 const factor = 0.7;
-const gyratorConst = 0.056;
+const gyratorConst = 0.56;
 
 let velocity = 0;
 const b = 5; // friktionskonstant
@@ -47,21 +47,21 @@ function animateBike() {
     const Torque = totalForce * rPedal; 
     const MOInertia = mass * rWheel * rWheel / 2;
     let angAcc = Torque / MOInertia;
-    console.log(angAcc);
 
     /* Calculate new angle & angular velocity */
     const [vnew, thetanew] = eulerMethod(angAcc, velocity, angle, h);
     velocity = vnew;
-    if(velocity > 4){
-        velocity = 4; //To stop velocity from being too high
+    if(velocity > 17){
+        velocity = 17; //To stop velocity from being too high
     }
     angle = thetanew;
     document.getElementById('vel').textContent = `V: ${Math.ceil(velocity)} m/s`;
     
     /* Calculate power output */
-    current = Math.abs(Torque) / gyratorConst;
-    volt = resistance * current;
+    volt = gyratorConst * velocity;
+    current = volt / resistance;
     power = current * volt;
+    console.log(power);
     document.getElementById('pow').textContent = `Effect: ${power.toFixed(2)} Watts`;
     bulb(Math.floor(power));
     
